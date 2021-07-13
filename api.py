@@ -30,6 +30,5 @@ def example_endpoint(item:Training):
 
 @app.post("/ask_gpt")
 def user_endpoint(prompt):
-    output = gpt.submit_request(prompt)
-    result = output.choices[0].text
+    result = gpt.get_top_reply(prompt)
     return result
