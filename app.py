@@ -12,7 +12,7 @@ st.set_page_config(layout='wide',
 def Pageviews():
     return []
 
-st.title('GPT-3 Streamlit Sandbox 🛠️')
+st.title('🔮 GPT-3 Streamlit Sandbox 🛠️')
 st.info("Setup to quickly check use case feasibility on OpenAI's GPT-3!")
 
 left_column, right_column = st.beta_columns(2)
