@@ -1,10 +1,11 @@
-import streamlit as st
 import time
+import requests
+import streamlit as st
 from footer_utils import image, link, layout, footer
 
 st.set_page_config(layout='wide',
                    initial_sidebar_state='collapsed',
-                   page_icon="https://beta.openai.com/favicon.ico",
+                   page_icon="favicon.png",
                    page_title="GPT-3 Streamlit Sandbox ⚒️")
 
 @st.cache(allow_output_mutation=True)
@@ -22,8 +23,9 @@ with left_column:
     if st.button('Send', key='challenge'):
         if prompt is not '':
             with st.spinner("Reaching OpenAI's Servers..."):
-                time.sleep(4)
-                st.success('Done !')
+                time.sleep(3.5)
+                response = requests.post(f"http://127.0.0.1:8000/ask_gpt", json={'prompt':prompt})
+                st.success(response.text)
         else:
             st.error("Prompt Incomplete :/")
 
@@ -34,8 +36,9 @@ with right_column:
     if st.button('Send', key='help'):
         if example_input is not '' and example_output is not '':
             with st.spinner("Reaching OpenAI's Servers..."):
-                time.sleep(4)
-                st.success('Done !')
+                time.sleep(3.5)
+                response = requests.post(f"http://127.0.0.1:8000/add_example", json={'input':example_input, 'output':example_output})
+                st.success(response.text)
         else:
             st.error("Example Incomplete :/")
 
