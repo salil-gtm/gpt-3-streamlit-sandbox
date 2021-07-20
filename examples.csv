@@ -1,4 +1,4 @@
-Input,Ouput
+Input,Output
 list files in this directory,ls
 create a file named test.txt that contains 3 colors,"echo ""red green blue"" > test.txt"
 "create a directory named foo, and enter it",mkdir foo; cd foo;
