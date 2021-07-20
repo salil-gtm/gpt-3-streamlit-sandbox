@@ -24,8 +24,8 @@ gpt = GPT(engine="davinci",
 print("Bulk Example Training")
 example_data = pd.read_csv("examples.csv")
 for count, row in example_data.iterrows():
-    print("Input : ", row['Input'],"Ouput : ", row['Ouput'])
-    gpt.add_example(Example(row['Input'], row['Ouput']))
+    print("Input : ", row['Input'],"Output : ", row['Output'])
+    gpt.add_example(Example(row['Input'], row['Output']))
 print("All Examples Added !")
 
 class Training(BaseModel):
