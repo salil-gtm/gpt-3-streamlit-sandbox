@@ -25,7 +25,8 @@ with left_column:
             with st.spinner("Reaching OpenAI's Servers..."):
                 time.sleep(3.5)
                 response = requests.post(f"http://127.0.0.1:8000/ask_gpt", json={'prompt':prompt})
-                st.success(response.text)
+                for line in list(filter(bool, response.text.splitlines())):
+                    st.text(line)
         else:
             st.error("Prompt Incomplete :/")
 
